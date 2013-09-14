@@ -5,15 +5,52 @@ require 'dozen'
 
 program :name, 'dozen'
 program :version, Dozen.VERSION
-program :description, 'Tool to pair your Sixaxis PS3 controller to an abritary Bluetooth master. Based on sixpair\'s source.'
-program :help_formatter, :compact
+program :description, 'Tool to pair your Sixaxis PS3 controller to an abritary ' +
+                      'Bluetooth master. Based on sixpair\'s source.'
+program :help_formatter, Commander::HelpFormatter::Terminal
 
 command :list do |c|
   c.syntax = 'dozen list'
   c.description = 'Lists all Sixaxis controllers connected via USB and their masters.'
   c.action do |args, options|
-    x = Dozen.new
-    x.list_controllers
+    Dozen.show_header
+    dozen = Dozen.new
+    dozen.list_controllers
+  end
+end
+
+command :pair do |c|
+  c.syntax = 'dozen pair ADDRESS '
+  c.description = 'Pairs the first controller on the `dozen list` with the Bluetooth address.'
+  c.option '--index NUMBER', Integer, 'Specify which controller on `dozen list` to pair.'
+  c.option '--all', 'Pair every connected Sixaxis controller with the specified address.'
+
+  c.action do |args, options|
+    Dozen.show_header
+
+    options.default index: 0
+
+    if args.empty?
+      puts "You must specify a Bluetooth device address."
+      next
+    end
+
+    desiredMaster = Dozen.parse_bluetooth_address(args[0])
+
+    if desiredMaster == false
+      puts "Invalid input for Bluetooth device address. Please use six, colon-delimited hexadecimal pairs (00:10:60:AA:36:F8)."
+      next
+    end
+
+    puts options.index
+
+    dozen = Dozen.new
+
+    if options.all
+      dozen.assign_address_to_all(desiredMaster)
+    else
+      dozen.assign_address_to_controller(desiredMaster, options.index)
+    end
   end
 end
 
