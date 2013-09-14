@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require 'commander/import'
+require 'dozen'
+
+program :name, 'dozen'
+program :version, Dozen.VERSION
+program :description, 'Tool to pair your Sixaxis PS3 controller to an abritary Bluetooth master. Based on sixpair\'s source.'
+program :help_formatter, :compact
+
+command :list do |c|
+  c.syntax = 'dozen list'
+  c.description = 'Lists all Sixaxis controllers connected via USB and their masters.'
+  c.action do |args, options|
+    x = Dozen.new
+    x.list_controllers
+  end
+end
+
+default_command :list
