@@ -42,8 +42,6 @@ command :pair do |c|
       next
     end
 
-    puts options.index
-
     dozen = Dozen.new
 
     if options.all
