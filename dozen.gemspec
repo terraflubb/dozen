@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Rob Fletcher"]
   s.email       = ["rob@terraflubb.com"]
   s.date        = "2013-09-13"
-  s.homepage    = "http://terraflubb.github.com/dozen"
+  s.homepage    = "https://github.com/terraflubb/dozen"
   s.summary     = "A simple tool to pair your Sixaxis controller with any Bluetooth device"
   s.description = "A simple tool to pair your Sixaxis controller with any Bluetooth device. Derived from the sixpair.c source."
   s.license = "MIT"
