@@ -7,10 +7,10 @@ Gem::Specification.new do |s|
   s.homepage    = "http://terraflubb.github.com/dozen"
   s.summary     = "A simple tool to pair your Sixaxis controller with any Bluetooth device"
   s.description = "A simple tool to pair your Sixaxis controller with any Bluetooth device. Derived from the sixpair.c source."
-  s.license = "BSD"
+  s.license = "MIT"
 
-  s.files         = `git ls-files`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.files         = Dir["{lib}/**/*.rb", "bin/*", "LICENSE", "*.md"]]
+  s.executables   << 'dozen'
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency("commander", "~> 4.1.3")
