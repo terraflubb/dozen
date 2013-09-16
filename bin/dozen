@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'rubygems'
 require 'commander/import'
 require 'dozen'
 
@@ -28,7 +29,7 @@ command :pair do |c|
   c.action do |args, options|
     Dozen.show_header
 
-    options.default index: 0
+    options.default :index => 0
 
     if args.empty?
       puts "You must specify a Bluetooth device address."

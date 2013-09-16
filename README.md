@@ -5,7 +5,7 @@ This was written by Rob Fletcher, but I looked at sixpair to figure out the USB 
 
 ## What does it do?
 
-All this tool will do is tell your Sixaxis controller who it's Bluetooth master is. This is often called *pairing*.
+All this tool will do is tell your Sixaxis controller who it's Bluetooth master is. This is often called *pairing*. This should work with stock Ruby that comes with all OS X installations.
 
 ### I'm confused if this is what I need!
 
@@ -22,6 +22,10 @@ But if you just plug your PS3 controller into your computer (I've only tested th
 All this does is pair the controller with something. It's not a driver. The thing you're pairing your controller with has to know what to do with the device. So if you're using this for an Android device, that probably means you need to root your phone and buy the super handy [Sixaxis](https://play.google.com/store/apps/details?id=com.dancingpixelstudios.sixaxiscontroller&hl=en).
 
 I don't know what it takes to get a Sixaxis controller paired via Bluetooth to be recognized by whatever OS you've got, but this won't do it.
+
+## Getting started
+
+**TODO: Install the gem... that should do it once that's done**
 
 ## Basic Usage
 So, you know your phone's Bluetooth address. Let's say that it is `aa:bb:cc:dd:ee:ff`.
@@ -55,6 +59,5 @@ All right then fancy pants. Now you have ... 18 Sixaxis controllers and you only
 
 # TO DO
 
-* Make this work on Ruby 1.8.7 so it will run on stock OS X Ruby installations
 * Test coverage
 * Make it a proper gem

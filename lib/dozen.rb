@@ -34,7 +34,7 @@ class Dozen
   def assign_address_to_all(address)
     @devices.each_with_index do |device, index|
       device.open do |handle|
-        puts "Assigning address #{formatAddress(address)} to controller ##{controller_index}"
+        puts "Assigning address #{formatAddress(address)} to controller ##{index}"
         assign_master_to_handle(address, handle)
       end
     end
@@ -42,9 +42,9 @@ class Dozen
 
   def self.parse_bluetooth_address(raw_address)
     begin
-      preparedAddress = raw_address.split(':').map{ |x| Integer(x, 16)}
+      preparedAddress = raw_address.split(':').map{ |x| Integer("0x" + x)}
     rescue
-      preparedAddress = false
+      return false
     end
     return false if preparedAddress.length != 6
     return false if preparedAddress.any? {|x| x < 0 || x > 0xFF}
@@ -57,7 +57,7 @@ class Dozen
   end
 
   def self.VERSION
-    '1.0.0'
+    '1.1.0'
   end
 
   private
