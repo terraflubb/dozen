@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.description = "A simple tool to pair your Sixaxis controller with any Bluetooth device. Derived from the sixpair.c source."
   s.license = "MIT"
 
-  s.files         = Dir["{lib}/**/*.rb", "bin/*", "LICENSE", "*.md"]]
+  s.files         = Dir["{lib}/**/*.rb", "bin/*", "LICENSE", "*.md"]
   s.executables   << 'dozen'
   s.require_paths = ["lib"]
 
