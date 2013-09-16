@@ -25,14 +25,16 @@ I don't know what it takes to get a Sixaxis controller paired via Bluetooth to b
 
 ## Getting started
 
-**TODO: Install the gem... that should do it once that's done**
+If you have Ruby installed, you should be able to install this gem via:
+
+`gem install dozen`
 
 ## Basic Usage
 So, you know your phone's Bluetooth address. Let's say that it is `aa:bb:cc:dd:ee:ff`.
 This will be your usecase 99% of the time.
 
 1. Plug in your Sixaxis controller via USB
-2. `ruby -Ilib bin/dozen pair aa:bb:cc:dd:ee:ff` (lol I didn't set it up as a gem yet)
+2. `dozen pair aa:bb:cc:dd:ee:ff`
 3. Done! That controller is now paired with your phone. Fire up sixaxis and you're all done
 
 ## Advanced Features
@@ -43,7 +45,7 @@ So now you have 3 sixaxis controllers and want to use them all on your phone at 
 You could do the usage step 3 times, but ol' flubby was thoughtful enough to add an `--all` flag!
 
 1. Plug in ALL THREE of your Sixaxis controllers at once
-2. `ruby -Ilib bin/dozen pair --all aa:bb:cc:dd:ee:ff`
+2. `dozen pair --all aa:bb:cc:dd:ee:ff`
 3. Go play Snood or something!
 
 ### Sniper usage
@@ -52,12 +54,6 @@ All right then fancy pants. Now you have ... 18 Sixaxis controllers and you only
 
 1. Buy a quality series of USB hubs
 2. Plug in all 18 Sixaxis controllers
-3. `ruby -Ilib bin/dozen list`
+3. `dozen list`
 4. Work out which of the 18 nearly-identical entires is the controller you want (it's #4)
-5. `ruby -Ilib bin/dozen pair aa:bb:cc:dd:ee:ff --index 4` (yeah yeah, gemspec something...)
-
-
-# TO DO
-
-* Test coverage
-* Make it a proper gem
+5. `dozen pair aa:bb:cc:dd:ee:ff --index 4`
